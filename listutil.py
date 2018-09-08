@@ -39,7 +39,7 @@ def binary_search(list, element):
     The list can contain any kind of elements, including duplicates and nulls in any order.
 
     :param list: list of elements to find index elements of
-    :param element:
+    :param element: a value in list
     :return: the index of the selected element in list
 
     Examples:
