@@ -1,21 +1,39 @@
 import unittest
 
-from listutil import count_unique
+from listutil import count_unique, binary_search
 
-"""
-Tests of the count_unique methods.
-"""
 
 class test_unique(unittest.TestCase):
+    """Tests of the count_unique function."""
 
     def test_null(self):
         list = [ ]
-        self.assertEquals(0, count_unique(list))
+        self.assertEqual(0, count_unique(list))
 
     def test_multiple_unique(self):
         list = ['a', 'b', 'b', 'b', 'a', 'c', 'c']
-        self.assertEquals(3, count_unique(list))
+        self.assertEqual(3, count_unique(list))
 
     def test_one_unique(self):
         list = ['a', 'a', 'a', 'a']
-        self.assertEquals(1, count_unique(list))
+        self.assertEqual(1, count_unique(list))
+
+
+class test_binary_seach(unittest.TestCase):
+    """Tests of the binary_search function."""
+
+    def test_null(self):
+        list, element = ['', '3', '8', '1', '0'], ''
+        self.assertRaises(TypeError, binary_search(list, element))
+
+    def test_character(self):
+        list, element = ['d', 'e', 'f', 'u', 'l', 't'], 'f'
+        self.assertEqual(2, binary_search(list, element))
+
+    def test_out_of_list(self):
+        list, element = ['d', 'e', 'f', 'u', 'l', 't'], 'a'
+        self.assertEqual(-1, binary_search(list, element))
+
+    def test_number(self):
+        list, element = ['7', '3', '8', '1', '5'], '3'
+        self.assertEqual(1, binary_search(list, element))
