@@ -1,4 +1,3 @@
-#Count unique
 ## Count Unique
 
 | Test case           | Case   | Return |
