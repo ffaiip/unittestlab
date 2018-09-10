@@ -22,6 +22,9 @@ def count_unique(list):
     sum = 0
     count_unique_list = []
 
+    if list == None:
+        raise TypeError("Search element must not be none")
+
     for x in list:
         if x not in count_unique_list:
             count_unique_list.append(x)
